@@ -1,27 +1,29 @@
 .container {
+  position: relative;
   width: 607px;
   height: 829px;
   margin: auto;
   margin-top: 75px;
+  margin-bottom: 75px;
   border-radius: 12px;
   background-image: linear-gradient(180deg, #130754 0%, #3b2f80 100%);
 }
 
-.top-bar {
+.search-container {
   display: flex;
   justify-content: center;
   gap: 14px;
   padding-top: 60px;
 }
 
-.top-bar input {
+.search-container input {
   display: flex;
   width: 362px;
   height: 78px;
   background: #ebfffc;
   border: none;
   outline: none;
-  border-radius: 40px;
+  border-radius: 5px;
   padding-left: 40px;
   color: #626262;
   font-size: 20px;
@@ -89,4 +91,35 @@
 
 .icon {
   margin-top: 10px;
+}
+
+.result-box {
+  position: absolute;
+  top: calc(60px + 78px); /* Adjust this value based on the actual position */
+  width: calc(362px + 43px); /* Input width + icon width + gap */
+  border-radius: 5px;
+  max-height: 300px;
+  margin-left: 55px;
+  background-color: #ebfffc;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1; /* Ensure it's above other elements */
+}
+
+.result-box-row {
+  padding: 10px 40px;
+  cursor: pointer;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: start;
+  /* margin: 2px 0; */
+}
+
+.result-box-row:hover {
+  background-color: #c6cbff; /* Hover effect for interactivity */
+}
+
+.result-box:empty {
+  border: none;
 }
