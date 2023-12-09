@@ -24,7 +24,7 @@ TODO
 .env.test.local
 .env.production.local
 
-server./env
+server/.env
 
 npm-debug.log*
 yarn-debug.log*
