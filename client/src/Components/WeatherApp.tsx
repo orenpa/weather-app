@@ -1,16 +1,18 @@
 import { ChangeEvent, useCallback, useEffect, useState } from "react";
-import "./WeatherApp.css";
+import "../styles/WeatherApp.css";
 
-import search_icon from "../assets/search.png";
-import cloud_icon from "../assets/cloud.png";
-import drizzle_icon from "../assets/drizzle.png";
-import clear_icon from "../assets/clear.png";
-import humidity_icon from "../assets/humidity.png";
-import snow_icon from "../assets/snow.png";
-import rain_icon from "../assets/rain.png";
-import wind_icon from "../assets/wind.png";
+import search_icon from "./assets/search.png";
+import cloud_icon from "./assets/cloud.png";
+import drizzle_icon from "./assets/drizzle.png";
+import clear_icon from "./assets/clear.png";
+import humidity_icon from "./assets/humidity.png";
+import snow_icon from "./assets/snow.png";
+import rain_icon from "./assets/rain.png";
+import wind_icon from "./assets/wind.png";
 import axios from "axios";
-import { City } from "../../types/CityType";
+import { City } from "../types/CityType";
+import { useNavigate } from "react-router-dom";
+import CityNotFound from "./CityNotFound";
 
 const WeatherApp = () => {
   const [wicon, setWicon] = useState(cloud_icon);
@@ -21,7 +23,9 @@ const WeatherApp = () => {
   const [input, setInput] = useState<string>("");
   const [city, setCity] = useState<string>("");
   const [searchFlag, setSearchFlag] = useState(false);
-  const maxReults = 20;
+  const [showAlert, setShowAlert] = useState(false);
+  const navigate = useNavigate();
+  const maxReults: number = 20;
 
   //get cities data
   const fetchCities = useCallback(async () => {
@@ -91,8 +95,15 @@ const WeatherApp = () => {
         }
       } catch (error) {
         console.error("There was an error!", error);
+        setShowAlert(true);
       }
     }
+  };
+
+  const handleReturnHome = () => {
+    setShowAlert(false);
+    setInput("");
+    navigate("/");
   };
 
   const handleCitySelect = (cityName: string) => {
@@ -108,6 +119,9 @@ const WeatherApp = () => {
 
   return (
     <div className="container">
+      {showAlert && (
+        <CityNotFound show={showAlert} onReturnHome={handleReturnHome} />
+      )}
       <div className="search-container">
         <input
           type="text"

@@ -1,0 +1,47 @@
+.alert-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Dimmed background */
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.alert-box {
+  background-color: rgb(191, 191, 191); /* Background color for the alert box */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px; /* Or any suitable width */
+  margin: 15px; /* For smaller screens */
+}
+
+.alert-box img {
+  max-width: 100%; /* Ensures the image fits in the alert box */
+  height: auto;
+}
+
+.alert-box p {
+  margin-top: 10px; /* Spacing after the image */
+  font-size: 16px; /* Or any suitable size */
+}
+
+.alert-box button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #6053ae; /* A color from your gradient */
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.alert-box button:hover {
+  background-color: #2a2460; /* A slightly darker shade for hover effect */
+}
