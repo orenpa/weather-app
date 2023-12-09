@@ -4,6 +4,7 @@ import connectDB from "./config/mongoConnection.js";
 import setCitiesDB from "./config/setCitiesDB.js";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import WeatherAppRouter from "./routes/WeatherAppRouter.js";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ connectDB();
 mongoose.connection.once("open", () => {
   console.log("Connection to MongoDB = GOOD");
   setCitiesDB();
-
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
+
+app.use("/", WeatherAppRouter);
