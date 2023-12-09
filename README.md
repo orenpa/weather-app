@@ -25,7 +25,7 @@ Welcome to **WeatherApp** - the cutting-edge application designed to provide you
 
 ## 🎬 See It in Action!
 
-![alt](https://github.com/orenpa/weather-app/blob/main/client/src/Components/Assets/fetures.gif)
+![alt](https://github.com/orenpa/weather-app/blob/main/client/src/Components/Assets/featuress.gif)
 
 ## 🌬️ Weather Data at Your Fingertips
 
