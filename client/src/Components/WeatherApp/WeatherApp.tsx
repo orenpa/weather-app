@@ -1,17 +1,16 @@
 import { ChangeEvent, useCallback, useEffect, useState } from "react";
 import "./WeatherApp.css";
 
-import search_icon from "../Assets/search.png";
-import cloud_icon from "../Assets/cloud.png";
-import drizzle_icon from "../Assets/drizzle.png";
-import clear_icon from "../Assets/clear.png";
-import humidity_icon from "../Assets/humidity.png";
-import snow_icon from "../Assets/snow.png";
-import rain_icon from "../Assets/rain.png";
-import wind_icon from "../Assets/wind.png";
+import search_icon from "../assets/search.png";
+import cloud_icon from "../assets/cloud.png";
+import drizzle_icon from "../assets/drizzle.png";
+import clear_icon from "../assets/clear.png";
+import humidity_icon from "../assets/humidity.png";
+import snow_icon from "../assets/snow.png";
+import rain_icon from "../assets/rain.png";
+import wind_icon from "../assets/wind.png";
 import axios from "axios";
-import { City } from "../../Types/CityType";
-import useAutocomplete from "@mui/material/useAutocomplete";
+import { City } from "../../types/CityType";
 
 const WeatherApp = () => {
   const [wicon, setWicon] = useState(cloud_icon);
@@ -22,7 +21,6 @@ const WeatherApp = () => {
   const [input, setInput] = useState<string>("");
   const [city, setCity] = useState<string>("");
   const [searchFlag, setSearchFlag] = useState(false);
-  const [timer, setTimer] = useState<number | NodeJS.Timeout>();
   const maxReults = 20;
 
   //get cities data
