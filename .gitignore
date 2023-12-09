@@ -4,6 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
+node_modules/
+client/node_modules/
+server/node_modules/
+
 
 # testing
 /coverage
